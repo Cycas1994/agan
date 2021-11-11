@@ -1,4 +1,4 @@
-package com.cycas.commonutil.pojo.dmo;
+package com.cycas.commonutil.pojo.account.dmo;
 
 public class Account {
 

@@ -1,4 +1,4 @@
-package com.cycas.commonutil.pojo;
+package com.cycas.commonutil.pojo.common;
 
 import java.io.Serializable;
 

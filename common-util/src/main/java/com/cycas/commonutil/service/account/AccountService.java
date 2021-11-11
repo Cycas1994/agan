@@ -1,4 +1,4 @@
-package com.cycas.commonutil.service;
+package com.cycas.commonutil.service.account;
 
 public interface AccountService {
 

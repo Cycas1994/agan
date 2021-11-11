@@ -1,4 +1,4 @@
-package com.cycas.commonutil.message.dto.req;
+package com.cycas.commonutil.pojo.message.dto.req;
 
 public class JunkMessageReq {
 

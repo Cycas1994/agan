@@ -1,8 +1,8 @@
-package com.cycas.commonutil.service.impl;
+package com.cycas.commonutil.service.account.impl;
 
 import com.cycas.commonutil.dao.AccountDao;
-import com.cycas.commonutil.pojo.dmo.Account;
-import com.cycas.commonutil.service.AccountService;
+import com.cycas.commonutil.pojo.account.dmo.Account;
+import com.cycas.commonutil.service.account.AccountService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.cycas.commonutil.dao;
 
-import com.cycas.commonutil.pojo.dmo.Account;
+import com.cycas.commonutil.pojo.account.dmo.Account;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 

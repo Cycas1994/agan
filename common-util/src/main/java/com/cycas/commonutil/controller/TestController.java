@@ -1,8 +1,7 @@
 package com.cycas.commonutil.controller;
 
-import com.cycas.commonutil.pojo.JsonData;
-import com.cycas.commonutil.service.AccountService;
-import com.cycas.commonutil.service.SyncService;
+import com.cycas.commonutil.pojo.common.JsonData;
+import com.cycas.commonutil.service.account.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
