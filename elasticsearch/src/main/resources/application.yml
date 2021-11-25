@@ -1,4 +1,6 @@
 server:
   port: 8899
-  servlet:
-    context-path: /es
+elasticsearch:
+  url: localhost:9200
+  username: elastic
+  password: you52100
