@@ -13,6 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 比较全面的es配置类
+ */
 @Configuration
 public class ElasticsearchConfiguration {
 
@@ -69,8 +72,7 @@ public class ElasticsearchConfiguration {
     public void setConnectMaxConfig(RestClientBuilder builder) {
         //认证
         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
-        credentialsProvider.setCredentials(AuthScope.ANY,
-                new UsernamePasswordCredentials(user, password));
+        credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(user, password));
         builder.setHttpClientConfigCallback(httpClientBuilder -> {
             httpClientBuilder.setMaxConnTotal(MAX_CONN_TOTAL);
             httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);

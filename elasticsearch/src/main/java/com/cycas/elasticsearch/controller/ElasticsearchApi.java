@@ -23,9 +23,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * 客户端api操作es
+ */
 @RequestMapping("/operate")
 @RestController
-public class ApiController {
+public class ElasticsearchApi {
 
     private static final String INDEX = "persondata";
 

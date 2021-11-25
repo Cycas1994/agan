@@ -26,7 +26,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public class Aggregation {
+/**
+ * 聚合方法
+ */
+public class ElasticsearchAggregation {
 
     public static void main(String[] args) {
 

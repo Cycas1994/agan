@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * rest Api操作es，推荐
+ */
 @RestController
 @RequestMapping("/employee")
-public class RestApiController {
+public class ElasticsearchRestApi {
 
     @Autowired
     private EmployeeService employeeService;
