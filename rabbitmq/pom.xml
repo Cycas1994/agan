@@ -7,9 +7,10 @@
         <artifactId>nacos-spring-cloud</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>elasticjob</artifactId>
+    <groupId>com.cycas</groupId>
+    <artifactId>rabbitmq</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>elasticjob</name>
+    <name>rabbitmq</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
@@ -17,37 +18,19 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--框架核心jar包-->
-        <!--<dependency>
-            <groupId>com.github.kuhn-he</groupId>
-            <artifactId>elastic-job-lite-spring-boot-starter</artifactId>
-            <version>2.1.5</version>
-        </dependency>-->
-        <dependency>
-            <groupId>com.dangdang</groupId>
-            <artifactId>elastic-job-lite-core</artifactId>
-            <version>2.1.5</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dangdang</groupId>
-            <artifactId>elastic-job-lite-spring</artifactId>
-            <version>2.1.5</version>
-        </dependency>
-        <!--添加数据相关的驱动主要是为了记录任务相关的一些数据，日志-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.10</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -61,6 +44,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>

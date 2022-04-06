@@ -22,6 +22,8 @@
         <module>nacos-spring-cloud-config-example8060</module>
         <module>nacos-spring-cloud-consumer-example8090</module>
         <module>nacos-spring-cloud-provider-example8070</module>
+        <module>rabbitmq</module>
+        <module>redis</module>
         <module>seata-account8003</module>
         <module>seata-order8001</module>
         <module>seata-storage8002</module>
