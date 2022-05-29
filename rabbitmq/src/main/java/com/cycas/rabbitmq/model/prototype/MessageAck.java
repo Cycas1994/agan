@@ -1,4 +1,4 @@
-package com.cycas.rabbitmq.model;
+package com.cycas.rabbitmq.model.prototype;
 
 import com.cycas.rabbitmq.util.RabbitMQUtils;
 import com.cycas.rabbitmq.util.SleepUtils;

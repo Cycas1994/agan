@@ -5,3 +5,5 @@ spring:
     name: rabbitmq
   rabbitmq:
     host: localhost
+    virtual-host: /
+    port: 5672

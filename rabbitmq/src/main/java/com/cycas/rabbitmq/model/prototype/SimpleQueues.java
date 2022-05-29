@@ -1,4 +1,4 @@
-package com.cycas.rabbitmq.model;
+package com.cycas.rabbitmq.model.prototype;
 
 import com.rabbitmq.client.*;
 
