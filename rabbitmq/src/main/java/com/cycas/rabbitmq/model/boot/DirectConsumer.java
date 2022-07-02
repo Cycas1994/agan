@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class DirectConsumer {
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue,
+            value = @Queue("direct_queue"),
             exchange = @Exchange(value = "directs", type = "direct"),
             key = {"info", "error", "warn"}
     ))
@@ -23,7 +23,7 @@ public class DirectConsumer {
     }
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue,
+            value = @Queue("direct_queue"),
             exchange = @Exchange(value = "directs", type = "direct"),
             key = {"error"}
     ))

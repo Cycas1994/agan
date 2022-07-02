@@ -13,14 +13,14 @@ import org.springframework.stereotype.Component;
 public class FanoutConsumer {
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue, // 创建临时队列
+            value = @Queue("fanout_queue"),
             exchange = @Exchange(value = "logs", type = "fanout")))
     public void consume1(String message) {
         System.out.println("广播模式消费者1接收消息：" + message);
     }
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue,
+            value = @Queue("fanout_queue"),
             exchange = @Exchange(value = "logs", type = "fanout")
     ))
     public void consume2(String message) {

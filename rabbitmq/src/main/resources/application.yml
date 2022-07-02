@@ -9,3 +9,6 @@ spring:
     port: 5672
     publisher-confirm-type: correlated
     publisher-returns: true
+
+  aop:
+    proxy-target-class: false

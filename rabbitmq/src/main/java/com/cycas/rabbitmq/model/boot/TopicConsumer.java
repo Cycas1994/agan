@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class TopicConsumer {
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue,
+            value = @Queue("topic_one"),
             exchange = @Exchange(value = "topics", type = "topic"),
             key = {"user.save", "user.*"}
     ))
@@ -22,7 +22,7 @@ public class TopicConsumer {
     }
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue,
+            value = @Queue("topic_two"),
             exchange = @Exchange(value = "topics", type = "topic"),
             key = {"order.#", "produce.#", "user.*"}
     ))
