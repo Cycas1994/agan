@@ -29,6 +29,7 @@
         <module>seata-storage8002</module>
         <module>sentinel-service9010</module>
         <module>sharding-interceptor</module>
+        <module>transaction</module>
 
     </modules>
 
