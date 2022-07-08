@@ -26,9 +26,10 @@ public class MyServiceImpl implements MyService {
         student.setsName("1");
         studentDAO.insert(student);
         try {
-            transactionService.required();
+            transactionService.nested();
         } catch (Exception e) {
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            e.printStackTrace();
+//            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
         }
 //        transactionService.nested();
     }
