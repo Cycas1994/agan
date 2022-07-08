@@ -7,6 +7,7 @@ import com.cycas.transaction.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 @Service
 public class MyServiceImpl implements MyService {
@@ -27,8 +28,8 @@ public class MyServiceImpl implements MyService {
         try {
             transactionService.required();
         } catch (Exception e) {
-            e.printStackTrace();
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
         }
-//        transactionService.notSupported();
+//        transactionService.nested();
     }
 }
