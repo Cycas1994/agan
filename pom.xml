@@ -9,25 +9,25 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cycas</groupId>
-    <artifactId>nacos-spring-cloud</artifactId>
+    <artifactId>agan</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>nacos-spring-cloud</name>
+    <name>agan</name>
     <description>Demo project for Spring Boot</description>
     <modules>
         <module>common-util</module>
         <module>elasticjob</module>
         <module>elasticsearch</module>
-        <module>kafka8999</module>
-        <module>nacos-spring-cloud-config-example8060</module>
-        <module>nacos-spring-cloud-consumer-example8090</module>
-        <module>nacos-spring-cloud-provider-example8070</module>
+        <module>kafka</module>
+        <module>nacos-config</module>
+        <module>nacos-consumer</module>
+        <module>nacos-provider</module>
         <module>rabbitmq</module>
         <module>redis</module>
-        <module>seata-account8003</module>
-        <module>seata-order8001</module>
-        <module>seata-storage8002</module>
-        <module>sentinel-service9010</module>
+        <module>seata-account</module>
+        <module>seata-order</module>
+        <module>seata-storage</module>
+        <module>sentinel-service</module>
         <module>sharding-interceptor</module>
         <module>transaction</module>
 

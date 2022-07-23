@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.cycas</groupId>
-        <artifactId>nacos-spring-cloud</artifactId>
+        <artifactId>agan</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>elasticsearch</artifactId>
