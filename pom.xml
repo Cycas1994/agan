@@ -15,6 +15,7 @@
     <name>agan</name>
     <description>Demo project for Spring Boot</description>
     <modules>
+        <module>algs</module>
         <module>common-util</module>
         <module>elasticjob</module>
         <module>elasticsearch</module>
