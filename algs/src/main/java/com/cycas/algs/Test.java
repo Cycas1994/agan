@@ -2,6 +2,8 @@ package com.cycas.algs;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.Scanner;
 
@@ -9,8 +11,18 @@ import java.util.Scanner;
  * @author NaXin
  * @since 2022-08-07
  */
+@Component
+@RequestScope
 public class Test {
     private static Scanner scanner;
+
+    public static void print() {
+        boolean[][] arr = {{true, true, true}, {false, false, false}, {true, true, true}};
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println();
+            System.out.println(i + 1 + ":");
+        }
+    }
     public static void main(String[] args) {
 
         boolean[][] arr = {{true, true, true}, {false, false, false}, {true, true, true}};
