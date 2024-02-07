@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  redis:
+    # host: 127.0.0.1
+    host: ENC(BgXmRNVHTEXRrS4e+oTHzKKxqctiuNva)
+    port: 6379
+    password: 123456
+
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+    # password: lzkjv1dwdb3kv5kyo5mv7gsuvqoggk
