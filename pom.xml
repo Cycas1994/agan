@@ -32,6 +32,7 @@
         <module>sharding-interceptor</module>
         <module>transaction</module>
         <module>my-starter</module>
+        <module>design</module>
 
     </modules>
 
