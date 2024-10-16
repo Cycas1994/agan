@@ -33,6 +33,7 @@
         <module>transaction</module>
         <module>my-starter</module>
         <module>design</module>
+        <module>netty</module>
 
     </modules>
 
@@ -46,6 +47,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.42.Final</version>
+            </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
