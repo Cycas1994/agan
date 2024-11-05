@@ -1,5 +1,6 @@
 package com.cycas.netty.codec;
 
+import com.cycas.netty.protocol.PacketCodeC;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;

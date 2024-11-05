@@ -1,11 +1,12 @@
 package com.cycas.netty.client;
 
-import com.cycas.netty.codec.PacketDecoder;
-import com.cycas.netty.codec.PacketEncoder;
+import com.cycas.netty.client.console.ConsoleCommandManager;
+import com.cycas.netty.client.console.LoginConsoleCommand;
+import com.cycas.netty.client.handler.*;
+import com.cycas.netty.codec.PacketCodecHandler;
 import com.cycas.netty.codec.SpliterDecoder;
-import com.cycas.netty.handler.LoginResponseHandler;
-import com.cycas.netty.handler.MessageResponseHandler;
-import com.cycas.netty.protocol.MessageRequestPacket;
+import com.cycas.netty.server.handler.IMIdleStateHandler;
+import com.cycas.netty.util.SessionUtil;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -43,11 +44,18 @@ public class NettyClient {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
+                        ch.pipeline().addLast(new IMIdleStateHandler()); // 空闲检测放到最前面，放到后面有可能前面的Inbound出现报错或没有传播导致失效
                         ch.pipeline().addLast(new SpliterDecoder());
-                        ch.pipeline().addLast(new PacketDecoder());
-                        ch.pipeline().addLast(new LoginResponseHandler());
-                        ch.pipeline().addLast(new MessageResponseHandler());
-                        ch.pipeline().addLast(new PacketEncoder());
+                        ch.pipeline().addLast(PacketCodecHandler.INSTANCE);
+                        ch.pipeline().addLast(new HeartBeatTimerHandler()); // 发送心跳
+                        ch.pipeline().addLast(LoginResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(MessageResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(CreateGroupResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(JoinGroupResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(QuitGroupResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(ListGroupMembersResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(GroupMessageResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(LogoutResponseHandler.INSTANCE);
                     }
                 });
         // 4.建立连接
@@ -77,18 +85,19 @@ public class NettyClient {
     }
     
     private static void startConsoleThread(Channel channel) {
+        ConsoleCommandManager consoleCommandManager = new ConsoleCommandManager();
+        Scanner sc = new Scanner(System.in);
+
         new Thread(() -> {
             while (!Thread.interrupted()) {
-//                if (LoginUtil.hasLogin(channel)) {
-                    System.out.println("输入消息发送至服务端：");
-                    Scanner scanner = new Scanner(System.in);
-                    String line = scanner.nextLine();
-
-                    MessageRequestPacket packet = new MessageRequestPacket();
-                    packet.setMessage(line);
-                    channel.writeAndFlush(packet);
-//                }
+                if (!SessionUtil.hasLogin(channel)) {
+                    new LoginConsoleCommand().exec(sc, channel);
+                } else {
+                    consoleCommandManager.exec(sc, channel);
+                }
             }
         }, "ConsoleThread").start();
     }
+
+
 }
