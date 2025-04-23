@@ -1,6 +1,7 @@
 package com.cycas.netty.client.handler;
 
 import com.cycas.netty.protocol.request.HeartBeatRequestPacket;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -10,9 +11,14 @@ import java.util.concurrent.TimeUnit;
  * @author xin.na
  * @since 2024/10/25 14:37
  */
+@ChannelHandler.Sharable
 public class HeartBeatTimerHandler extends ChannelInboundHandlerAdapter {
 
     private static final int HEARTBEAT_INTERVAL = 5;
+
+    public static final HeartBeatTimerHandler INSTANCE = new HeartBeatTimerHandler();
+
+    private HeartBeatTimerHandler() {}
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {

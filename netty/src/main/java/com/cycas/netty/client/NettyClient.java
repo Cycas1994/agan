@@ -47,7 +47,8 @@ public class NettyClient {
                         ch.pipeline().addLast(new IMIdleStateHandler()); // 空闲检测放到最前面，放到后面有可能前面的Inbound出现报错或没有传播导致失效
                         ch.pipeline().addLast(new SpliterDecoder());
                         ch.pipeline().addLast(PacketCodecHandler.INSTANCE);
-                        ch.pipeline().addLast(new HeartBeatTimerHandler()); // 发送心跳
+                        ch.pipeline().addLast(HeartBeatTimerHandler.INSTANCE); // 发送心跳
+                        ch.pipeline().addLast(HeartBeatResponseHandler.INSTANCE);
                         ch.pipeline().addLast(LoginResponseHandler.INSTANCE);
                         ch.pipeline().addLast(MessageResponseHandler.INSTANCE);
                         ch.pipeline().addLast(CreateGroupResponseHandler.INSTANCE);
